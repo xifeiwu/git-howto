@@ -1,0 +1,22 @@
+{
+  "name": "git-howto",
+  "version": "1.0.0",
+  "description": "show how git works, how projects is managed by git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@elif.site:bash/project/git-howto.git"
+  },
+  "keywords": [
+    "git",
+    "howto"
+  ],
+  "author": "xfwu",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.0.6"
+  }
+}
