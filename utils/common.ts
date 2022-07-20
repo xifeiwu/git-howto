@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
 
 const toString = Object.prototype.toString;
 
@@ -348,13 +349,13 @@ export function readDirRecursive(
   const fullpath = path.join(root, prefix);
   if (!fs.existsSync(fullpath)) return files;
   if (fs.statSync(fullpath).isDirectory()) {
+    if (!dirFilter(fullpath) && fullpath !== root) {
+      return [];
+    }
     if (includeDir) {
       files.push(`${prefix}/`);
     }
     fs.readdirSync(fullpath)
-      .filter((name) => {
-        return dirFilter(path.join(fullpath, name));
-      })
       .forEach((name) => {
         readDirRecursive(root, option, files, path.join(prefix as string, name));
       });
@@ -364,4 +365,8 @@ export function readDirRecursive(
     }
   }
   return files;
+}
+
+export function sha1sum(str: crypto.BinaryLike) {
+  return crypto.createHash('sha1').update(str).digest('hex');
 }
