@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 const toString = Object.prototype.toString;
 
 export function isNumber(val: any) {
@@ -292,16 +295,73 @@ export function pickProps(
   const res: {
     [key: string]: any;
   } = {};
-  keys.forEach(k => {
+  keys.forEach((k) => {
     res[k] = obj[k];
   });
   return res;
 }
 // 等待ms毫秒
 export async function waitMilliSeconds(ms: number) {
-  return new Promise<void>(resolve => {
+  return new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve();
     }, ms);
   });
+}
+
+export function deleteFile(path: string) {
+  if (fs.existsSync(path)) {
+    if (fs.statSync(path).isFile()) {
+      fs.unlinkSync(path);
+    } else if (fs.statSync(path).isDirectory()) {
+      fs.readdirSync(path).forEach((file, index) => {
+        var curPath = path + '/' + file;
+        if (fs.statSync(curPath).isDirectory()) {
+          // recurse
+          deleteFile(curPath);
+        } else {
+          // delete file
+          fs.unlinkSync(curPath);
+        }
+      });
+      fs.rmdirSync(path);
+    }
+  } else {
+    console.error(`Error: path ${path} not exist`);
+  }
+}
+
+export function readDirRecursive(
+  root: string,
+  option?: {
+    dirFilter?: (fullpath: string) => boolean;
+    fileFilter?: (fullpath: string) => boolean;
+    includeDir?: boolean;
+  },
+  files?: string[],
+  prefix?: string
+): string[] {
+  prefix = prefix || '';
+  files = files || [];
+  // filter = filter || (() => true);
+  const {dirFilter = () => true, fileFilter = () => true, includeDir = false} = option ? option : {};
+  const fullpath = path.join(root, prefix);
+  if (!fs.existsSync(fullpath)) return files;
+  if (fs.statSync(fullpath).isDirectory()) {
+    if (includeDir) {
+      files.push(`${prefix}/`);
+    }
+    fs.readdirSync(fullpath)
+      .filter((name) => {
+        return dirFilter(path.join(fullpath, name));
+      })
+      .forEach((name) => {
+        readDirRecursive(root, option, files, path.join(prefix as string, name));
+      });
+  } else {
+    if (fileFilter(fullpath)) {
+      files.push(prefix);
+    }
+  }
+  return files;
 }
