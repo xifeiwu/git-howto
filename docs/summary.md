@@ -5,17 +5,22 @@
 
 # git数据存储模型
 
-- 有四种Object: Blob, Commit, Tree, Tag
-- 存储格式，文件名sha1sum, 文件内容，原始内容的关系
-  - ![img](assets/imgs/objects-structure.png)
-- Commit data 格式
-```tree 8368d93a6c2197eacdf1fe5f62e8eb872c38b63b
+- 四种Object: Blob, Commit, Tree, Tag的内容
+
+
+- commit
+  
+```
+tree 8368d93a6c2197eacdf1fe5f62e8eb872c38b63b
 parent e02344a1f0f2d8a1f75db5a2368d315ad41dd2b3
 author wuxifei <xfwu@conviva.com> 1658419392 +0800
 committer wuxifei <xfwu@conviva.com> 1658419392 +0800
 
-add README.md```
+add README.md
+```
+
 - tree content 格式
+
 ```
 100644 blob fd4f2b066b339e4fd5c0efd44938231a398e9a81    .gitignore
 040000 tree acbe07d92660f57d2ee1c395ad0e8b45e33a2751    1-storage
@@ -27,13 +32,34 @@ add README.md```
 ```
 
 - blob content 格式
-```文件内容```
+
+```
+This is summary of git usage
+```
+
+- tag
+
+```
+object 76e758e22aca7d6c8f699c1d814fb1d56b71d7a3
+type commit
+tag v1.0
+tagger wuxifei <xfwu@conviva.com> 1658991628 +0800
+
+add tag v1.0
+```
+
+- 存储格式，文件名sha1sum, 文件内容，原始内容的关系
+  <!-- - ![img](assets/imgs/objects-structure.png) -->
+  - <img src="assets/imgs/objects-structure.png" alt="drawing" width="1000"/>
+
 
 - 暂存区也有tree
 - git gc
 - 存储的树状结构
 - 任何一个历史blob, commit修改，都会导致之后commitId的变化，fast-forward。
 - hooks: pre-commit, post-receive
+
+- mv dir1 dir2; git add dir1 dir2
 
 # git分支管理
 
@@ -44,6 +70,8 @@ topgit
 
 # pr
 # submodule
+
+[git子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
 
 ```
 git archive -o xxx.zip commit
