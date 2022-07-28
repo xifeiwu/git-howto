@@ -1,9 +1,12 @@
 
 # 目录
 
-1. git数据存储模型
+1. git storage model
+2. git branch management
+3. usecase of git submodule
+4. useful git commands
 
-# git数据存储模型
+# git storage model
 
 - 四种Object: Blob, Commit, Tree, Tag的内容
 
@@ -48,10 +51,18 @@ tagger wuxifei <xfwu@conviva.com> 1658991628 +0800
 add tag v1.0
 ```
 
-- 存储格式，文件名sha1sum, 文件内容，原始内容的关系
+- rawData, fileName, filePath
   <!-- - ![img](assets/imgs/objects-structure.png) -->
-  - <img src="assets/imgs/objects-structure.png" alt="drawing" width="1000"/>
+  <img src="assets/imgs/object-structure.png" alt="object-structure" width="800"/>
 
+- commit tree
+
+<img src="assets/imgs/commit-tree.jpg" alt="commit-tree" width="568" height="424">
+
+- summary
+  - how git diff work
+  - any change to blob, tree, commit will collapse children's commitId
+  - add existed file will not increase the size of .git/objects
 
 - 暂存区也有tree
 - git gc
@@ -59,19 +70,27 @@ add tag v1.0
 - 任何一个历史blob, commit修改，都会导致之后commitId的变化，fast-forward。
 - hooks: pre-commit, post-receive
 
-- mv dir1 dir2; git add dir1 dir2
 
-# git分支管理
+# git branch management
+
+- gitflow
+
+- git pr
+
+- reference 
 
 [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+
 [Git 工作流程](https://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
 
-topgit
+[topgit](https://mackyle.github.io/topgit/topgit.html)
 
 # pr
-# submodule
+# usecase of git submodule
 
 [git子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+
+# useful git commands
 
 ```
 git archive -o xxx.zip commit
