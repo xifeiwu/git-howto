@@ -8,7 +8,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@utils/*": ["utils/*"],
+      "@/*": ["src/*"],
+      // "@utils/*": ["utils/*"],
     },
   },
   // "include": ["."]
