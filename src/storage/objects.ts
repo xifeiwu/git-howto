@@ -1,15 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as zlib from 'zlib';
-import {readDirRecursive, sha1sum} from '../utils/common';
-
-function unzip(path: string) {
-  if (!fs.existsSync(path)) {
-    throw new Error(`path ${path} not exist`);
-  }
-  const buffer = fs.readFileSync(path);
-  return zlib.unzipSync(buffer).toString('utf-8');
-}
+import {readDirRecursive, sha1sum, unzip} from '../utils/common';
 
 export function listObjects(repoDir: string) {
   if (!fs.existsSync(repoDir)) {

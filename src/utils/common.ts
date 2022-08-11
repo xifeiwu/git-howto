@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as zlib from 'zlib';
 import * as crypto from 'crypto';
 
 const toString = Object.prototype.toString;
@@ -369,4 +370,12 @@ export function readDirRecursive(
 
 export function sha1sum(str: crypto.BinaryLike) {
   return crypto.createHash('sha1').update(str).digest('hex');
+}
+
+export function unzip(path: string) {
+  if (!fs.existsSync(path)) {
+    throw new Error(`path ${path} not exist`);
+  }
+  const buffer = fs.readFileSync(path);
+  return zlib.unzipSync(buffer).toString('utf-8');
 }
