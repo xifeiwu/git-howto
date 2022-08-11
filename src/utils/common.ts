@@ -376,6 +376,10 @@ export function unzip(path: string) {
   if (!fs.existsSync(path)) {
     throw new Error(`path ${path} not exist`);
   }
+  const stat = fs.statSync(path);
+  if (!stat.isFile()) {
+    throw new Error(`Is not a file: ${path}`);
+  }
   const buffer = fs.readFileSync(path);
   return zlib.unzipSync(buffer).toString('utf-8');
 }
