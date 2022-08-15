@@ -1,8 +1,9 @@
+#!/usr/bin/env ts-node
 import * as fs from 'fs';
 import * as path from 'path';
 // import { buffer } from 'stream/consumers';
-import parse from './bytes';
-import { isNumber } from './common';
+import parse from '../utils/bytes';
+import { isNumber } from '../utils/common';
 
 const {argv} = process;
 if (argv.length <= 2) {
