@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as zlib from 'zlib';
 import * as crypto from 'crypto';
+import {Stream} from 'stream';
 
 const toString = Object.prototype.toString;
 
@@ -356,10 +357,9 @@ export function readDirRecursive(
     if (includeDir) {
       files.push(`${prefix}/`);
     }
-    fs.readdirSync(fullpath)
-      .forEach((name) => {
-        readDirRecursive(root, option, files, path.join(prefix as string, name));
-      });
+    fs.readdirSync(fullpath).forEach((name) => {
+      readDirRecursive(root, option, files, path.join(prefix as string, name));
+    });
   } else {
     if (fileFilter(fullpath)) {
       files.push(prefix);
@@ -382,4 +382,21 @@ export function unzip(path: string) {
   }
   const buffer = fs.readFileSync(path);
   return zlib.unzipSync(buffer).toString('utf-8');
+}
+
+export function getStreamGenerateRandomString() {
+  const getOneK = () => {
+    const size = 1024;
+    const buf = Buffer.alloc(size);
+    for (let i = 0; i < size; i++) {
+      buf[i] = Math.ceil(Math.random() * 128);
+    }
+    return buf;
+  };
+  return new Stream.Readable({
+    highWaterMark: 1024 * 2,
+    read() {
+      this.push(getOneK);
+    },
+  });
 }
