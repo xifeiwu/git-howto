@@ -396,7 +396,7 @@ export function getStreamGenerateRandomString() {
   return new Stream.Readable({
     highWaterMark: 1024 * 2,
     read() {
-      this.push(getOneK);
+      this.push(getOneK());
     },
   });
 }
