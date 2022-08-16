@@ -6,12 +6,16 @@
 3. usecase of git submodule
 4. useful git commands
 
-# git storage model
+# 1. git storage model
 
-- 四种Object: Blob, Commit, Tree, Tag的内容
+## 1.1 Relation between raw content, formatted content, and fileName(sha1)
 
+<!-- - ![img](assets/imgs/objects-structure.png) -->
+<img src="assets/imgs/object-structure.png" alt="object-structure" width="800"/>
 
-- commit
+## 1.2 Format of each Object's content
+
+**commit**
   
 ```
 tree 8368d93a6c2197eacdf1fe5f62e8eb872c38b63b
@@ -22,7 +26,7 @@ committer wuxifei <xfwu@conviva.com> 1658419392 +0800
 add README.md
 ```
 
-- tree content 格式
+**tree**
 
 ```
 100644 blob fd4f2b066b339e4fd5c0efd44938231a398e9a81    .gitignore
@@ -34,13 +38,13 @@ add README.md
 100644 blob 4df4f8b4eef64bc39cef01abde23fd0331881ebd    yarn.lock
 ```
 
-- blob content 格式
+**blob**
 
 ```
 This is summary of git usage
 ```
 
-- tag
+**tag**
 
 ```
 object 76e758e22aca7d6c8f699c1d814fb1d56b71d7a3
@@ -51,15 +55,15 @@ tagger wuxifei <xfwu@conviva.com> 1658991628 +0800
 add tag v1.0
 ```
 
-- rawData, fileName, filePath
-  <!-- - ![img](assets/imgs/objects-structure.png) -->
-  <img src="assets/imgs/object-structure.png" alt="object-structure" width="800"/>
+## 1.3 Structure of commit tree
 
-- commit tree
+<img src="assets/imgs/commit-tree.png" alt="commit-tree" width="528" height="368">
+<img src="assets/imgs/commit-tree-complex.png" alt="commit-tree-complex" width="528" height="368">
 
-<img src="assets/imgs/commit-tree.jpg" alt="commit-tree" width="568" height="424">
+## 1.4 Thought of commit tree
 
-- summary
+**git gc**
+
   - how git diff work
   - any change to blob, tree, commit will collapse children's commitId
   - add existed file will not increase the size of .git/objects
@@ -80,7 +84,7 @@ add tag v1.0
 - reference 
 
 [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-
+[Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
 [Git 工作流程](https://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
 
 [topgit](https://mackyle.github.io/topgit/topgit.html)
