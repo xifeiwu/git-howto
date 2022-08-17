@@ -10,7 +10,8 @@
     "ungzip": "./src/bin/ungzip.ts",
     "create-file": "./src/bin/create-file.ts",
     "create-gzip-file": "./src/bin/create-gzip-file.ts",
-    "show-sha1": "./src/bin/show-sha1.ts"
+    "show-sha1": "./src/bin/show-sha1.ts",
+    "generate-sha1": "./src/bin/generate-sha1.ts"
   },
   "repository": {
     "type": "git",
