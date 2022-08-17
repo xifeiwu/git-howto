@@ -400,3 +400,21 @@ export function getStreamGenerateRandomString() {
     },
   });
 }
+
+const HOME_PATH = process.env['HOME'];
+/**
+ * start from @param 'dir', find one file with @param'name' upwards
+ * @param dir, start dir
+ * @param name, target file name
+ */
+ export function findClosestFile(dir: string, name: string): string | null {
+  let fullPath = path.resolve(dir, name);
+  if (dir == HOME_PATH || dir == '/') {
+    return null;
+  }
+  if (fs.existsSync(fullPath)) {
+    return fullPath;
+  } else {
+    return findClosestFile(path.resolve(dir, '..'), name);
+  }
+}
