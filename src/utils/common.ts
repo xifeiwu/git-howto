@@ -418,3 +418,32 @@ const HOME_PATH = process.env['HOME'];
     return findClosestFile(path.resolve(dir, '..'), name);
   }
 }
+
+// export function runCmd(command: string) {
+//   return new Promise<{out: string; err: string}>((resolve, reject) => {
+//     exec(command, (error, out, err) => {
+//       if (error) {
+//         reject(error);
+//         return;
+//       }
+//       resolve({out, err});
+//     });
+//   });
+// }
+// async function runCommands(commands: string[]) {
+//   return new Promise(async (res) => {
+//     let index = 0;
+//     while (index < commands.length) {
+//       // console.log(`run command ${commands[index++]}`);
+//       const result = execSync(commands[index++], {
+//         shell: 'bash'
+//       });
+//       // const result = await runCmd(commands[index++]);
+//       if (Buffer.isBuffer(res)) {
+//         console.log(result.toString());
+//       }
+//       index++
+//     }
+//     res(true);
+//   });
+// }

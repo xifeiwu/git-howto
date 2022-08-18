@@ -15,7 +15,7 @@
 
 ## 1.2 Format of each Object's content
 
-**commit**
+### commit
   
 ```
 tree 8368d93a6c2197eacdf1fe5f62e8eb872c38b63b
@@ -26,7 +26,7 @@ committer wuxifei <xfwu@conviva.com> 1658419392 +0800
 add README.md
 ```
 
-**tree**
+### tree
 
 ```
 100644 blob fd4f2b066b339e4fd5c0efd44938231a398e9a81    .gitignore
@@ -38,13 +38,13 @@ add README.md
 100644 blob 4df4f8b4eef64bc39cef01abde23fd0331881ebd    yarn.lock
 ```
 
-**blob**
+### blob
 
 ```
 This is summary of git usage
 ```
 
-**tag**
+### tag
 
 ```
 object 76e758e22aca7d6c8f699c1d814fb1d56b71d7a3
@@ -62,24 +62,45 @@ add tag v1.0
 
 ## 1.4 Thought of commit tree
 
-**git gc**
+### git gc
 
-  - how git diff work
-  - any change to blob, tree, commit will collapse children's commitId
-  - add existed file will not increase the size of .git/objects
+- git fsck 版本库中未被任何引用关联的对象
+- git gc --prune=now清除悬空的结点
 
-- 暂存区也有tree
-- git gc
-- 存储的树状结构
+### others
+
+- how git diff work
+- any change to blob, tree, commit will collapse children's commitId
+- add existed file will not increase the size of .git/objects
+
 - 任何一个历史blob, commit修改，都会导致之后commitId的变化，fast-forward。
-- hooks: pre-commit, post-receive
 
+### reference
 
-# git branch management
+[The Biggest Misconception About Git](https://medium.com/@gohberg/the-biggest-misconception-about-git-b2f87d97ed52)
+# 2. git branch management
 
-- gitflow
+## 2.1 git flow
 
-- git pr
+### git flow
+
+<img src="assets/imgs/git-flow.png" alt="git-flow" width="575" height="762">
+
+### github flow
+
+<img src="assets/imgs/github-flow.webp" alt="github-flow" width="600" height="200">
+
+[Simple Git workflow is simple](https://www.atlassian.com/blog/git/simple-git-workflow-is-simple)
+
+### git rebase vs. git merge
+
+<img src="assets/imgs/git-merge-1.png" alt="git-merge-1" width="600" height="247">
+<img src="assets/imgs/git-merge-2.png" alt="git-merge-2" width="600" height="247">
+
+<img src="assets/imgs/git-rebase.png" alt="git-rebase" width="600" height="280">
+
+<img src="assets/imgs/commit-tree-by-rebase.png" alt="git-rebase" width="300" height="200">
+<img src="assets/imgs/commit-tree-by-merge.png" alt="git-rebase" width="300" height="200">
 
 - reference 
 
@@ -106,3 +127,21 @@ git merge-base
 git log -p <filename>
 git log --author=<author>
 ```
+
+# References
+
+
+[git book](https://git-scm.com/book/en/v2)
+
+<style>
+  h1, h2, h3 {
+    font-family: Adelle, Roboto Slab, DejaVu Serif, Georgia, Times New Roman, sans-serif;
+  }
+  h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 44px;
+    color: #f14e32;
+  }
+</style>
