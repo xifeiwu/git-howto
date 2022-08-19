@@ -70,9 +70,7 @@ add tag v1.0
 ### others
 
 - how git diff work
-- any change to blob, tree, commit will collapse children's commitId
 - add existed file will not increase the size of .git/objects
-
 - 任何一个历史blob, commit修改，都会导致之后commitId的变化，fast-forward。
 
 ### reference
@@ -94,31 +92,26 @@ add tag v1.0
 
 ### git rebase vs. git merge
 
+<div>
 <img src="assets/imgs/git-merge-1.png" alt="git-merge-1" width="600" height="247">
 <img src="assets/imgs/git-merge-2.png" alt="git-merge-2" width="600" height="247">
-
 <img src="assets/imgs/git-rebase.png" alt="git-rebase" width="600" height="280">
-
+</div>
+<div>
 <img src="assets/imgs/commit-tree-by-rebase.png" alt="git-rebase" width="300" height="200">
 <img src="assets/imgs/commit-tree-by-merge.png" alt="git-rebase" width="300" height="200">
+</div>
 
 - reference 
 
-[A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-[Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
-[Git 工作流程](https://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
 
-[topgit](https://mackyle.github.io/topgit/topgit.html)
+# 3. usecase of git submodule
 
-# pr
-# usecase of git submodule
-
-[git子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
-
-reference
+### 3.1 共享通用逻辑
+### 3.2 灵活跟踪三方代码
 
 [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)
-# useful git commands
+# 4. useful git commands
 
 ```
 git archive -o xxx.zip commit
@@ -131,10 +124,17 @@ git log -p <filename>
 git log --author=<author>
 ```
 
-# References
+# 5. References
 
 
-[git book](https://git-scm.com/book/en/v2)
+1. [git book](https://git-scm.com/book/en/v2)
+<img src="assets/imgs/book-progit2.png" alt="book-progit2" width="118" height="157">
+2. 《Git权威指南》<img src="assets/imgs/book-the-definitive-guide-of-git.jpg" alt="book-progit2" width="118" height="157">
+3. [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)，详细介绍了gitflow工作流程。
+4. [Git 工作流程](https://www.ruanyifeng.com/blog/2015/12/git-workflow.html)，Git 工作流程，阮一峰
+5. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，详细介绍了git submodule的使用
+6. [Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
+7. [topgit](https://mackyle.github.io/topgit/topgit.html)
 
 <style>
   h1, h2, h3 {
