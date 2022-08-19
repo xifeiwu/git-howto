@@ -28,11 +28,11 @@ function getTransform(reader: stream.Readable, threshold: number) {
       if (transferredSize < threshold) {
         if (threshold - transferredSize >= chunk.length) {
           this.push(chunk);
-          console.log(`write size: ${chunk.length}`);
+          // console.log(`write size: ${chunk.length}`);
           transferredSize += chunk.length;
         } else {
           this.push(chunk.slice(0, threshold - transferredSize));
-          console.log(`write size: ${threshold - transferredSize}`);
+          // console.log(`write size: ${threshold - transferredSize}`);
           transferredSize = threshold;
         }
         done();
