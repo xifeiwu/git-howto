@@ -1,5 +1,5 @@
 
-# 目录
+# Git项目实践
 
 1. git storage model
 2. git branch management
@@ -115,6 +115,9 @@ add tag v1.0
 
 [git子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
 
+reference
+
+[Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)
 # useful git commands
 
 ```

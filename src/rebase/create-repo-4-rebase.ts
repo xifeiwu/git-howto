@@ -107,4 +107,3 @@ export function createRepoIfNotExist() {
   }
   reCreateRepo();
 }
-reCreateRepo();
