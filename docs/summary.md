@@ -135,6 +135,7 @@ git log --author=<author>
 5. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，详细介绍了git submodule的使用
 6. [Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
 7. [topgit](https://mackyle.github.io/topgit/topgit.html)
+8. [Branch Strategy cross CI and SI](https://conviva.atlassian.net/wiki/spaces/CI/pages/17190320/Branch+Strategy+cross+CI+and+SI)
 
 <style>
   h1, h2, h3 {
