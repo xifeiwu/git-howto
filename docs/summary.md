@@ -64,6 +64,7 @@ add tag v1.0
 
 ### git gc
 
+- git reflog expire --expire=now --all
 - git fsck 版本库中未被任何引用关联的对象
 - git gc --prune=now清除悬空的结点
 
@@ -83,6 +84,10 @@ add tag v1.0
 ### git flow
 
 <img src="assets/imgs/git-flow.png" alt="git-flow" width="575" height="762">
+
+1. [A Branching Strategy](https://conviva.atlassian.net/wiki/spaces/MDS/pages/1550747013/Branching+Strategy)
+
+2. [Branch Strategy cross CI and SI](https://conviva.atlassian.net/wiki/spaces/CI/pages/17190320/Branch+Strategy+cross+CI+and+SI)
 
 ### github flow
 
@@ -104,7 +109,6 @@ add tag v1.0
 
 - reference 
 
-
 # 3. usecase of git submodule
 
 ### 3.1 共享通用逻辑
@@ -118,7 +122,7 @@ git archive -o xxx.zip commit
 git push origin local_branch:remote_branch
 git push origin :remote_branch
 git stash
-git gc/prune
+git gc
 git merge-base
 git log -p <filename>
 git log --author=<author>
@@ -135,7 +139,6 @@ git log --author=<author>
 5. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，详细介绍了git submodule的使用
 6. [Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
 7. [topgit](https://mackyle.github.io/topgit/topgit.html)
-8. [Branch Strategy cross CI and SI](https://conviva.atlassian.net/wiki/spaces/CI/pages/17190320/Branch+Strategy+cross+CI+and+SI)
 
 <style>
   h1, h2, h3 {
