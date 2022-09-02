@@ -123,6 +123,8 @@ git push origin local_branch:remote_branch
 git push origin :remote_branch
 git stash
 git gc
+git commit --amend
+git clean -df
 git merge-base
 git log -p <filename>
 git log --author=<author>
