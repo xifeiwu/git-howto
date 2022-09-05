@@ -89,6 +89,8 @@ add tag v1.0
 
 2. [Branch Strategy cross CI and SI](https://conviva.atlassian.net/wiki/spaces/CI/pages/17190320/Branch+Strategy+cross+CI+and+SI)
 
+3. [Git branch management specifications](https://conviva.atlassian.net/wiki/spaces/~695916971/pages/1543045882/Git+branch+management+specifications)
+
 ### github flow
 
 <img src="assets/imgs/github-flow.webp" alt="github-flow" width="600" height="200">
