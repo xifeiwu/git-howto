@@ -114,7 +114,14 @@ add tag v1.0
 # 3. usecase of git submodule
 
 ### 3.1 共享通用逻辑
+
+项目的版本库在某些情况虾需要引用其他版本库中的文件，例如公司积累了一套常用的函数库，被多个项目调用，显然这个函数库的代码不能直接放到某个项目的代码中，而是要独立为一个代码库，那么其他项目要调用公共函数库该如何处理呢？分别把公共函数库的文件拷贝到各自的项目中会造成冗余，丢弃了公共函数库的维护历史，
+
 ### 3.2 灵活跟踪三方代码
+
+### 3.3 structure
+
+<img src="assets/imgs/git-submodule.png" alt="git-submodule" width="400" height="200">
 
 [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)
 # 4. useful git commands
