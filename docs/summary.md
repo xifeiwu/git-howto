@@ -151,8 +151,9 @@ add tag v1.0
 ### reference
 
 1. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，展示了git submodule用到的大部分指令
+2. [Git Tools Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)，
 
-# 4. useful git commands
+# 4. frequently used git commands
 
 ```
 git archive -o xxx.zip commit
@@ -183,6 +184,7 @@ git commit --amend
 6. [Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
 
 7. [topgit](https://mackyle.github.io/topgit/topgit.html)
+
 
 <style>
   h1, h2, h3 {
