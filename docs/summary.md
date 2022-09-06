@@ -60,7 +60,7 @@ add tag v1.0
 <img src="assets/imgs/commit-tree.png" alt="commit-tree" width="528" height="368">
 <img src="assets/imgs/commit-tree-complex.png" alt="commit-tree-complex" width="528" height="368">
 
-## 1.4 Thought of commit tree
+## 1.4 Some thoughts of commit tree
 
 ### git gc
 
@@ -72,11 +72,11 @@ add tag v1.0
 
 - how git diff work
 - add existed file will not increase the size of .git/objects
-- 任何一个历史blob, commit修改，都会导致之后commitId的变化，fast-forward。
+- 任何一个历史blob, commit修改，都会导致之后commitId的变化，git push会报错：Non fast-forward。
 
 ### reference
 
-[The Biggest Misconception About Git](https://medium.com/@gohberg/the-biggest-misconception-about-git-b2f87d97ed52)
+1. [The Biggest Misconception About Git](https://medium.com/@gohberg/the-biggest-misconception-about-git-b2f87d97ed52)，git commit存储snapshot而不是diff
 # 2. git branch management
 
 ## 2.1 git flow
@@ -95,21 +95,44 @@ add tag v1.0
 
 <img src="assets/imgs/github-flow.webp" alt="github-flow" width="600" height="200">
 
-[Simple Git workflow is simple](https://www.atlassian.com/blog/git/simple-git-workflow-is-simple)
+### reference
 
-### git rebase vs. git merge
+1. [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)，详细介绍了gitflow工作流程。
+2. [Simple Git workflow is simple](https://www.atlassian.com/blog/git/simple-git-workflow-is-simple)，给出了一个github pull request的practice。
+
+## 2.2 git rebase vs. git merge
+
+### graphical representation 
 
 <div>
 <img src="assets/imgs/git-merge-1.png" alt="git-merge-1" width="600" height="247">
 <img src="assets/imgs/git-merge-2.png" alt="git-merge-2" width="600" height="247">
 <img src="assets/imgs/git-rebase.png" alt="git-rebase" width="600" height="280">
 </div>
+
+### log history of git rebase is more clear
+
 <div>
-<img src="assets/imgs/commit-tree-by-rebase.png" alt="git-rebase" width="300" height="200">
 <img src="assets/imgs/commit-tree-by-merge.png" alt="git-rebase" width="300" height="200">
+<img src="assets/imgs/commit-tree-by-rebase.png" alt="git-rebase" width="300" height="200">
 </div>
 
-- reference 
+### An error case of git merge
+
+<div>
+<img src="assets/imgs/error-case-of-git-merge.png" alt="error-case-of-git-merge" width="400" height="210">
+</div>
+
+### summary
+
+|  | 优点 | 缺点 |
+| :--  | :-- | :-- |
+| git rebase | <div>更优雅的git log</div><div>可以rebase到需要的分支，更加灵活</div><div>interactive rebase可以squash commit</div> | 需要熟悉git rebase指令 |
+| git merge | 简单 | <div>merge后不容易分清自己与三方的代码</div><div>某些情况下merge会出现代码冲突</div> |
+
+### reference
+
+1. [Git Branching Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)，对git merge, git rebase做了对比
 
 # 3. usecase of git submodule
 
@@ -119,11 +142,16 @@ add tag v1.0
 
 ### 3.2 灵活跟踪三方代码
 
+项目依赖三方库，git submodule可以在添加feature的同时跟踪源项目的更新。
+
 ### 3.3 structure
 
 <img src="assets/imgs/git-submodule.png" alt="git-submodule" width="400" height="200">
 
-[Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)
+### reference
+
+1. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，展示了git submodule用到的大部分指令
+
 # 4. useful git commands
 
 ```
@@ -132,11 +160,11 @@ git push origin local_branch:remote_branch
 git push origin :remote_branch
 git stash
 git gc
-git commit --amend
 git clean -df
 git merge-base
 git log -p <filename>
 git log --author=<author>
+git commit --amend
 ```
 
 # 5. References
