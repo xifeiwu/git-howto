@@ -60,7 +60,7 @@ add tag v1.0
 <img src="assets/imgs/commit-tree.png" alt="commit-tree" width="528" height="368">
 <img src="assets/imgs/commit-tree-complex.png" alt="commit-tree-complex" width="528" height="368">
 
-## 1.4 Some thoughts of commit tree
+## 1.4 Some thoughts about commit tree
 
 ### git gc
 
@@ -173,10 +173,15 @@ git commit --amend
 1. [git book](https://git-scm.com/book/en/v2)
 <img src="assets/imgs/book-progit2.png" alt="book-progit2" width="118" height="157">
 2. 《Git权威指南》<img src="assets/imgs/book-the-definitive-guide-of-git.jpg" alt="book-progit2" width="118" height="157">
+
 3. [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)，详细介绍了gitflow工作流程。
+
 4. [Git 工作流程](https://www.ruanyifeng.com/blog/2015/12/git-workflow.html)，Git 工作流程，阮一峰
+
 5. [Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)，详细介绍了git submodule的使用
+
 6. [Introduction to GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
+
 7. [topgit](https://mackyle.github.io/topgit/topgit.html)
 
 <style>
